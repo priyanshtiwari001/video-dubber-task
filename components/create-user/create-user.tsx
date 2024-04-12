@@ -6,6 +6,8 @@ import { useForm } from "react-hook-form";
 import { object, string } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
 import Link from "next/link";
+import { revalidatePath } from "next/cache";
+import { useRouter } from "next/navigation";
 
 const formSchema = object({
   email: string().email("Invalid email address"),
@@ -18,6 +20,7 @@ type CreateUserPageProps = React.ComponentPropsWithoutRef<"div">;
 export default function CreateUser({ ...props }: CreateUserPageProps) {
   const [isFormMsg, setIsFormMsg] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -44,6 +47,7 @@ export default function CreateUser({ ...props }: CreateUserPageProps) {
       }
 
       setIsFormMsg(true);
+      router.refresh();
       reset(); // re-set the form after successful submission
     } catch (error) {
       console.error("Failed to create user: ", error);

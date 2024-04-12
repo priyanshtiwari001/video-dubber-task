@@ -12,6 +12,7 @@ export default async function Home() {
       console.log(err.message);
       console.error(err);
     });
+  users.sort((user1, user2) => +user2.id - +user1.id);
 
   return (
     <main className="max-w-screen-xl mx-auto h-screen items-center justify-center">
