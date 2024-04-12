@@ -10,21 +10,13 @@ import {
   Text,
   rem,
 } from "@mantine/core";
-
-// type-safety
-type UserData = {
-  id: string;
-  name: string;
-  email: string;
-  avatar: string;
-  job: string;
-};
+import { UserData } from "@/app/types/UserData";
 
 import classes from "./table-section.module.css";
 
-type UserProps = {
+interface UserTypeProps {
   users: UserData[];
-};
+}
 
 // const data = [
 //   {
@@ -77,7 +69,7 @@ type UserProps = {
 //   },
 // ];
 
-export function TableSelection({ users }: UserProps) {
+export function TableSelection({ users }: UserTypeProps) {
   const [selection, setSelection] = useState(["1"]);
   const toggleRow = (id: string) =>
     setSelection((current) =>

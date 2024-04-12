@@ -1,14 +1,7 @@
 import CreateUser from "@/components/create-user/create-user";
 import Navbar from "@/components/navbar/navbar";
 import { TableSelection } from "@/components/table-section/table-section";
-
-type UserData = {
-  id: number;
-  name: string;
-  email: string;
-  avatar: string;
-};
-
+import { UserData } from "./types/UserData";
 export default async function Home() {
   const users: UserData[] = await fetch(
     "https://63c57732f80fabd877e93ed1.mockapi.io/api/v1/users",
