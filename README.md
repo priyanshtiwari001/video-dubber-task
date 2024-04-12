@@ -2,7 +2,7 @@
 
 ## Overview
 
-- This project contains the codebase where I demonsrate the my skills and complete the task provided by video dubber.
+- This project contains the codebase where I demonsrate  my skills and complete the task provided by video dubber.
 
 ## website Live preview
 
